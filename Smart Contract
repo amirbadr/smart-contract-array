@@ -1,0 +1,28 @@
+//This contract will utilize the ArrayUtils library for array manipulations.
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+import "./ArrayUtils.sol";  // Adjust the import path as required
+
+contract ArrayManipulator {
+    
+    using ArrayUtils for uint[];
+
+    uint[] public numbers;
+
+    function addNumber(uint _number) external {
+        numbers.push(_number);
+    }
+
+    function sortNumbers() external {
+        numbers.sort();
+    }
+
+    function removeDuplicates() external {
+        numbers.removeDuplicates();
+    }
+    
+    function getNumbers() external view returns (uint[] memory) {
+        return numbers;
+    }
+}
